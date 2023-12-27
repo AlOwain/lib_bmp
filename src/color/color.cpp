@@ -14,7 +14,7 @@ void Color::set_color(int r, int g, int b)
 #include <iostream>
 void Color::set_color(std::string r, std::string g, std::string b)
 {
-    /* Handle errors */
+    /* FIXME: Handle errors */
     // if (!(str_to_u8(r) && str_to_u8(g) && str_to_u8(b))) exit(-1);
     std::cout   << str_to_u8("sdaflk0") << ", "
                 << str_to_u8("31") << ", "

@@ -1,9 +1,9 @@
-all: build/lib_bmp.a
+all: build build/lib_bmp.a
 
 build/lib_bmp.a: build/bmp.o build/bmp_read.o build/color.o
 	ar rcs build/lib_bmp.a build/bmp.o build/bmp_read.o build/color.o
 
-build/bmp.o: | build
+build/bmp.o:
 	g++ -c src/bmp.cpp -o build/bmp.o
 
 build/bmp_read.o:
