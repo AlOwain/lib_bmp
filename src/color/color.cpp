@@ -11,20 +11,9 @@ void Color::set_color(int r, int g, int b)
     set_color(static_cast<uint8_t>(r), static_cast<uint8_t>(g), static_cast<uint8_t>(b));
 }
 
-#include <iostream>
 void Color::set_color(std::string r, std::string g, std::string b)
 {
-    /* FIXME: Handle errors */
-    // if (!(str_to_u8(r) && str_to_u8(g) && str_to_u8(b))) exit(-1);
-    str_to_u8("sdaflk0");
-    str_to_u8("31");
-    str_to_u8("0");
-    str_to_u8("-0");
-    str_to_u8("-120");
-    str_to_u8("230");
-    str_to_u8("100000");
-    str_to_u8("10");
-    // set_color();
+    set_color(str_to_u8(r), str_to_u8(g), str_to_u8(b));
 }
 
 void Color::set_color(uint8_t r, uint8_t g, uint8_t b)
@@ -34,18 +23,19 @@ void Color::set_color(uint8_t r, uint8_t g, uint8_t b)
     this->b = b;
 }
 
-int16_t str_to_u8(std::string str)
+uint8_t str_to_u8(std::string str)
 {
     unsigned long len = str.length();
-    if (str.length() > 3) return -1;
+    if (len > 3) return 0;
 
-    int16_t value;
-    for (int i = 0; i < len; i++)
+    const char *charStr = str.c_str();
+    int16_t digit_place = 1, value = 0;
+    for (int i = len - 1; i >= 0; i--)
     {
-        std::cout << str.c_str()[i] << std::endl;
-        if (str.c_str()[i] < 48 || str.c_str()[i] > 57) return -1;
-
-        value += (str.c_str()[i] - 48) + (10 * i);
+        if (charStr[i] < 48 || charStr[i] > 57) return 0;
+        value += ((int) charStr[i] - 48)  * digit_place;
+        digit_place *= 10;
     }
+
     return value;
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <cstdint>
-#include <cstdlib>
 #include <string>
 
 class Color {
@@ -18,4 +17,4 @@ private:
     uint8_t r, g, b;
 };
 
-int16_t str_to_u8(std::string str);
+uint8_t str_to_u8(std::string str);
