@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <string>
 
-class Color {
+struct Color {
 public:
     struct RGB {
         uint8_t r, g, b;
