@@ -33,10 +33,10 @@ void BMP::read(const char* filepath)
     input.seekg(4, input.cur);
 
     /* Reads width */
-    input.read(reinterpret_cast<char *>(&width), 4);
+    input.read(reinterpret_cast<char *>(&m_width), 4);
 
     /* Reads height */
-    input.read(reinterpret_cast<char *>(&height), 4);
+    input.read(reinterpret_cast<char *>(&m_height), 4);
 
     /* 
      * Skips 2 bytes that are not needed for functionality
@@ -50,15 +50,15 @@ void BMP::read(const char* filepath)
     /* Moves cursor to offset where data starts */
     input.seekg(offset, input.beg);
 
-    data = new Color*[height];
-    for (int i = 0; i < width; i++)
-        data[i] = new Color[width];
+    data = new Color*[height()];
+    for (int i = 0; i < width(); i++)
+        data[i] = new Color[width()];
 
-    for (int i = height - 1; i >= 0; i--)
+    for (int i = height() - 1; i >= 0; i--)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width(); j++)
             input.read(reinterpret_cast<char *>(&data[i][j]), 3);
-        input.seekg(width % 4, input.cur);
+        input.seekg(width() % 4, input.cur);
     }
 
     input.close();

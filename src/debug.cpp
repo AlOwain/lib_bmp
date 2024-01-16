@@ -6,10 +6,10 @@ int main(int argc, char** argv)
     {
         BMP image("input/example.bmp");
 
-        for (int i = 0; i < image.get_height(); i++)
+        for (int i = 0; i < image.height(); i++)
         {
-            for (int j = 0; j < image.get_width(); j++)
-                std::cout << (int) image.get_pixel(i, j).color().r << " ";
+            for (int j = 0; j < image.width(); j++)
+                std::cout << (int) image.pixel(i, j).color().r << " ";
             std::cout << std::endl;
         }
     }
@@ -17,10 +17,10 @@ int main(int argc, char** argv)
     {
         BMP image("input/example-simple.bmp");
 
-        for (int i = 0; i < image.get_height(); i++)
+        for (int i = 0; i < image.height(); i++)
         {
-            for (int j = 0; j < image.get_width(); j++)
-                std::cout << (int) image.get_pixel(i, j).color().r << " ";
+            for (int j = 0; j < image.width(); j++)
+                std::cout << (int) image.pixel(i, j).color().r << " ";
             std::cout << std::endl;
         }
     }
