@@ -21,6 +21,14 @@ void Color::set_color(RGB color) { this->color = color; }
 
 Color::RGB Color::get_color() { return { color.r, color.g, color.b }; }
 
+bool Color::operator==(Color right_color)
+{
+    RGB left = this->get_color(), right = right_color.get_color();
+    return  left.r == right.r &&
+            left.g == right.g &&
+            left.b == right.b;
+}
+
 uint8_t str_to_u8(std::string str)
 {
     unsigned long len = str.length();
