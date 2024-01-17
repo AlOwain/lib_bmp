@@ -26,6 +26,13 @@ void Color::operator==(Color right)
     set(right.color().r, right.color().g, right.color().b);
 }
 
+std::ostream& operator<<(std::ostream &stream, Color color)
+{
+    return stream << std::hex << (int) color.color().r << " "
+                << std::hex << (int) color.color().g << " "
+                << std::hex << (int) color.color().b;
+}
+
 uint8_t str_to_u8(std::string str)
 {
     unsigned long len = str.length();

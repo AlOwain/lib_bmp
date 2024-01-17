@@ -9,7 +9,7 @@ int main(int argc, char** argv)
         for (int i = 0; i < image.height(); i++)
         {
             for (int j = 0; j < image.width(); j++)
-                std::cout << (int) image.pixel(i, j).color().r << " ";
+                std::cout << image.pixel(i, j) << " ";
             std::cout << std::endl;
         }
     }
@@ -20,7 +20,7 @@ int main(int argc, char** argv)
         for (int i = 0; i < image.height(); i++)
         {
             for (int j = 0; j < image.width(); j++)
-                std::cout << (int) image.pixel(i, j).color().r << " ";
+                std::cout << image.pixel(i, j) << " ";
             std::cout << std::endl;
         }
     }

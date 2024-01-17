@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <ostream>
 #include <string>
 
 struct Color {
@@ -22,6 +23,7 @@ public:
     RGB color();
 
     void operator==(Color right_color);
+    friend std::ostream& operator<<(std::ostream &stream, Color color);
 private:
     RGB m_color;
 };
