@@ -19,12 +19,9 @@ void Color::set(std::string r, std::string g, std::string b)
 void Color::set(uint8_t r, uint8_t g, uint8_t b) { set({r, g, b}); }
 void Color::set(RGB color) { m_color = color; }
 
-Color::RGB Color::color() { return { m_color.r, m_color.g, m_color.b }; }
+Color::RGB Color::color() { return m_color; }
 
-void Color::operator==(Color right)
-{
-    set(right.color().r, right.color().g, right.color().b);
-}
+void Color::operator==(Color right) { set(right.color()); }
 
 std::ostream& operator<<(std::ostream &stream, Color color)
 {
@@ -44,7 +41,7 @@ uint8_t str_to_u8(std::string str)
     {
         if (charStr[i] < 48 || charStr[i] > 57) return 0;
         value += ((int) charStr[i] - 48)  * digit_place;
-        digit_place *= 10; }
-
+        digit_place *= 10;
+    }
     return value;
 }
