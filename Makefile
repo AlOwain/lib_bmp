@@ -10,7 +10,7 @@ build/bmp.o: src/bmp/bmp.cpp
 build/bmp_read.o: src/bmp/bmp_read.cpp
 	g++ -c $^ -o $@
 
-build/color.o: src/color/color.cpp
+build/color.o: src/color.cpp
 	g++ -c $^ -o $@
 
 # Phonies

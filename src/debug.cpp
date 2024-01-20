@@ -1,5 +1,5 @@
 #include <iostream>
-#include "bmp/bmp.h"
+#include "../headers/bmp.h"
 
 int main(int argc, char** argv)
 {
