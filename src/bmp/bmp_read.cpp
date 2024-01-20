@@ -1,4 +1,5 @@
 #include "bmp.h"
+#include <iostream>
 
 void BMP::read(const char* filepath)
 {
@@ -51,7 +52,8 @@ void BMP::read(const char* filepath)
     input.seekg(offset, input.beg);
 
     data = new Color*[height()];
-    for (int i = 0; i < width(); i++)
+
+    for (int i = 0; i < height(); i++)
         data[i] = new Color[width()];
 
     for (int i = height() - 1; i >= 0; i--)
