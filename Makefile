@@ -1,10 +1,25 @@
 all: debug
 
-# Options
+# BMP
 
-lib: clean build build/lib_bmp.a bmp
+BMP := build/bmp.o build/bmp_read.o build/color.o
 
-debug: build build/debug bmp
+build/bmp.o: src/bmp/bmp.cpp
+	g++ -c $^ -o $@
+
+build/bmp_read.o: src/bmp/bmp_read.cpp
+	g++ -c $^ -o $@
+
+build/color.o: src/color/color.cpp
+	g++ -c $^ -o $@
+
+# Phonies
+
+.PHONY: all clean lib debug
+
+lib: build build/lib_bmp.a
+
+debug: build build/debug
 
 build:
 	mkdir -p build
@@ -14,27 +29,13 @@ clean:
 
 # Linking
 
-build/lib_bmp.a: build/bmp.o build/bmp_read.o build/color.o
-	ar rcs build/lib_bmp.a build/bmp.o build/bmp_read.o build/color.o
-
-build/debug: build/debug.o bmp
-	g++ build/debug.o build/bmp.o build/bmp_read.o build/color.o -o build/debug
+build/lib_bmp.a: $(BMP)
+	ar rcs $@ $^
 
 # Debug
 
+build/debug: build/debug.o $(BMP)
+	g++ $^ -o $@
+
 build/debug.o: src/debug.cpp
-	g++ -c src/debug.cpp -o build/debug.o
-
-# BMP
-
-bmp: build/bmp.o build/bmp_read.o build/color.o
-
-build/bmp.o: src/bmp/bmp.cpp
-	g++ -c src/bmp/bmp.cpp -o build/bmp.o
-
-build/bmp_read.o: src/bmp/bmp_read.cpp
-	g++ -c src/bmp/bmp_read.cpp -o build/bmp_read.o
-
-build/color.o: src/color/color.cpp src/color/color.h
-	g++ -c src/color/color.cpp -o build/color.o
-
+	g++ -c $^ -o $@

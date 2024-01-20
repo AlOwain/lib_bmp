@@ -3,15 +3,11 @@
 
 int main(int argc, char** argv)
 {
-    {
-        BMP image("input/test.bmp");
+    BMP image("input/test.bmp");
 
-        for (int i = 0; i < image.height(); i++)
-        {
-            for (int j = 0; j < image.width(); j++)
-                std::cout << image.pixel(i, j) << " ";
-            std::cout << std::endl;
-        }
-    }
+    std::cout << image.pixel(210, 324) << " "
+            << image.pixel(210, 325) << " "
+            << image.pixel(210, 326) << std::endl;
+    std::cout << image.pixel(211, 325) << std::endl;
     return 0;
 }
