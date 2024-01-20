@@ -21,7 +21,7 @@ void Color::set(RGB color) { m_color = color; }
 
 Color::RGB Color::color() { return m_color; }
 
-void Color::operator==(Color right) { set(right.color()); }
+void Color::operator=(Color right) { set(right.color()); }
 
 std::ostream& operator<<(std::ostream &stream, Color color)
 {

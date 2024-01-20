@@ -22,7 +22,7 @@ public:
 
     RGB color();
 
-    void operator==(Color right_color);
+    void operator=(Color right_color);
     friend std::ostream& operator<<(std::ostream &stream, Color color);
 private:
     RGB m_color;
