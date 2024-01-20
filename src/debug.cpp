@@ -6,8 +6,11 @@ int main(int argc, char** argv)
     BMP image("input/test.bmp");
 
     Color x = {100, 100, 100};
-    std::cout << x << std::endl;
+    Color y = {0, 0, 0};
+    std::cout << x << " | " << y << std::endl;
+    std::cout << (x == y) << std::endl;
     x = {0, 0, 0};
-    std::cout << x << std::endl;
+    std::cout << x << " | " << y << std::endl;
+    std::cout << (x == y) << std::endl;
     return 0;
 }

@@ -23,6 +23,13 @@ Color::RGB Color::color() { return m_color; }
 
 void Color::operator=(Color right) { set(right.color()); }
 
+bool Color::operator==(Color right)
+{
+    return  color().r == right.color().r &&
+            color().g == right.color().g &&
+            color().b == right.color().b;
+}
+
 std::ostream& operator<<(std::ostream &stream, Color color)
 {
     return stream << std::hex << (int) color.color().r << " "
