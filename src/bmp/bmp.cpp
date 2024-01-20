@@ -1,4 +1,4 @@
-#include "bmp.h"
+#include "../../headers/bmp.h"
 
 BMP::BMP(const char *filepath)
 {

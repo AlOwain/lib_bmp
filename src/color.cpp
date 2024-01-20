@@ -1,4 +1,4 @@
-#include "color.h"
+#include "../headers/color.h"
 
 Color::Color() : Color(255, 255, 255) {}
 Color::Color(int r, int g, int b) { set(r, g, b); }

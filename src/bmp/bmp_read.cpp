@@ -1,4 +1,4 @@
-#include "bmp.h"
+#include "../../headers/bmp.h"
 #include <iostream>
 
 void BMP::read(const char* filepath)
