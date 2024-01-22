@@ -3,14 +3,9 @@
 
 int main(int argc, char** argv)
 {
-    BMP image("input/test.bmp");
+    BMP image("input/example-simple.bmp");
 
-    Color x = {100, 100, 100};
-    Color y = {0, 0, 0};
-    std::cout << x << " | " << y << std::endl;
-    std::cout << (x == y) << std::endl;
-    x = {0, 0, 0};
-    std::cout << x << " | " << y << std::endl;
-    std::cout << (x == y) << std::endl;
+    std::cout << image.pixel(image.height() - 1, image.width() - 1) << std::endl;
+    std::cout << image.pixel(image.height(), image.width()) << std::endl;
     return 0;
 }
